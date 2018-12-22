@@ -51,7 +51,10 @@ config = Configuration(CONFIG_FILE)
 print(config.get("spyagent1"))
 config.set("spyagent1","password123")
 print(config.get("spyagent1"))
-# config.addSection("BACKUPS")
+try:
+    config.addSection("BACKUPS")
+except Exception as e:
+    print(f"Error:")
 config.addField("url", "BACKUPS")
 config.set("url","http://www.google.com",section="BACKUPS")
 print(config.get("url","BACKUPS"))
